@@ -287,7 +287,7 @@ for i,(split_train,split_test) in enumerate(folds.split(X,y)):
         reuse_actors=False,
         raise_on_failed_trial=False)
 
-    metric='auc'; mode='max';scope='last-5-avg'
+    metric='loss'; mode='min';scope='last-5-avg'
     best_result=result.get_best_trial(metric,mode,scope=scope).last_result
     print(best_result)
     kfold_results.append(result)
